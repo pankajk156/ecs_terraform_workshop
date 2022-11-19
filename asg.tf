@@ -40,14 +40,14 @@ resource "aws_security_group" "ec2-sg" {
   }
 }
 
-/* resource "aws_launch_configuration" "lc" {
+ resource "aws_launch_configuration" "lc" {
   name          = "test_ecs"
   image_id      = data.aws_ami.amazon_linux.id
   instance_type = "t2.micro"
   lifecycle {
     create_before_destroy = true
   }
-  iam_instance_profile        = user2
+ # iam_instance_profile        = user2
   #aws_iam_instance_profile.ecs_service_role.name
   key_name                    = var.key_name
   security_groups             = [aws_security_group.ec2-sg.id]
@@ -57,7 +57,7 @@ resource "aws_security_group" "ec2-sg" {
 sudo apt-get update
 sudo echo "ECS_CLUSTER=${var.cluster_name}" >> /etc/ecs/ecs.config
 EOF
-} */
+} 
 
 resource "aws_autoscaling_group" "asg" {
   name                      = "test-asg"
